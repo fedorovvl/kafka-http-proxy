@@ -1,0 +1,8 @@
+kafka:
+  bootstrap_servers: kafka:9092
+port: 8080
+default_timeout: 30
+warmup_topics:
+  - orders-responses
+  - users-responses
+  - common-responses

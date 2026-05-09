@@ -1,0 +1,22 @@
+kafka:
+  bootstrap_servers: kafka:9092
+
+topics:
+  - request_topic: orders-requests
+    response_topic: orders-responses
+    backend_url: http://orders-backend:8080
+    consumer_group: orders-processors
+    timeout: 30
+    max_retries: 3
+    rate_limit: 100
+
+  - request_topic: users-requests
+    response_topic: users-responses
+    backend_url: http://users-backend:8080
+    consumer_group: users-processors
+    timeout: 25
+    max_retries: 2
+
+max_concurrent_requests: 200
+health_check_interval: 30
+dead_letter_topic: failed-requests
